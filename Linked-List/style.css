@@ -3,6 +3,8 @@
   padding: 0;
 }
 
+@media screen and (min-width: 550px) {
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
@@ -60,14 +62,15 @@ input {
   background-color: #cfd8dc;
   float: right;
   height: 100vh;
-  /*overflow: auto;*/
+  overflow: auto;
   width: 50%;
 }
 
 article {
   background-color: #fff;
   border: 2px solid #607d8b;
-  height: calc(25% - 35px);
+  /*height: calc(25% - 35px);*/
+  height: 140px;
   margin: 25px auto;
   width: 85%;
   overflow: auto;
@@ -140,4 +143,146 @@ a:hover {
 
 .read a {
   text-decoration-color: #cfd8dc;
+}
+
+}
+
+@media screen and (max-width: 550px) {
+  body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.left-side {
+  background-color: #455a64;
+  color: #fff;
+  float: left;
+  height: 350px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-top: 15px;
+}
+
+img {
+  height: 1.5em;
+  margin: 0 10px;
+  position: relative;
+  top: 25px;
+  width: 1.5em;
+}
+
+input {
+  border: none;
+  font-size: 2em;
+  margin-top: 25px;
+  padding: 5px;
+  width: 75%;
+}
+
+::placeholder {
+  color: #cfd8dc;
+  padding-left: 10px;
+}
+
+.left-side button {
+  background-color: #ffc107;
+  border: none;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 800;
+  height: 2.5em;
+  margin-top: 25px;
+  width: 75%;
+}
+
+.right-side {
+  background-color: #cfd8dc;
+  float: right;
+  height: 100%;
+  width: 100%;
+}
+
+article {
+  background-color: #fff;
+  border: 2px solid #607d8b;
+  /*height: calc(25% - 35px);*/
+  height: 140px;
+  margin: 25px auto;
+  width: 85%;
+  overflow: auto;
+  clear: both;
+}
+
+h2 {
+  color: #455a64;
+  margin: 5px 10px;
+}
+
+p {
+  color: #455a64;
+}
+
+.website-url {
+  border-bottom: 2px solid #cfd8dc;
+  border-top: 2px solid #cfd8dc;
+  font-size: 1.25em;
+  color: #607D8B;
+  margin: 0 10px;
+  padding: 15px 0;
+}
+
+.right-side button {
+  border: none;
+  color: #455a64;
+  font-size: .85em;
+  margin: 8px 10px;
+  text-decoration: underline;
+  text-decoration-color: #f2f4f4;
+}
+
+/*Same purpose as a:hover? Refactor?*/
+.right-side button:hover {    
+  color: #455a64;
+  font-weight: 800;
+  text-decoration-color: #ffc107;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+a {
+  color: #607d8b;
+  text-decoration-color: #f2f4f4;
+}
+
+a:hover {
+  color: #455a64;
+  font-weight: 800;
+  text-decoration-color: #ffc107;
+}
+
+.read {
+  background-color: #f2f4f4;
+}
+
+.read button {
+  background-color: #f2f4f4;
+  color: #f05a28;
+  font-weight: 800;
+}
+
+.read a {
+  text-decoration-color: #cfd8dc;
+}
 }
