@@ -129,6 +129,15 @@ a:hover {
 }
 
 .read {
-  color: #f05a28;
   background-color: #f2f4f4;
+}
+
+.read button {
+  background-color: #f2f4f4;
+  color: #f05a28;
+  font-weight: 800;
+}
+
+.read a {
+  text-decoration-color: #cfd8dc;
 }

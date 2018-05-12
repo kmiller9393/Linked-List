@@ -1,15 +1,19 @@
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var enterButton = document.querySelector('.enter');
-// var bookmark1 = document.querySelector('.bookmark-1');
-var readButton = document.querySelector('.float-left');
+var readButton = document.querySelector('.first-read-button');
+var bookmark = document.querySelector('#bookmark1');
 var deleteButton = document.querySelector('.float-right');
 
 
-websiteTitle.addEventListener('input',);
-websiteURL.addEventListener('input',);
-enterButton.addEventListener('click',);
+// websiteTitle.addEventListener('input',);
+// websiteURL.addEventListener('input',);
+// enterButton.addEventListener('click',);
+// deleteButton.addEventListener('click',);
 readButton.addEventListener('click', function () {
-  // bookmark1.classList.add('read');
+   // //event delegation?
+   // let target = event.target;
+   // addReadClass(target);
+   bookmark.classList.add('read');
 });
-deleteButton.addEventListener('click',);
+
