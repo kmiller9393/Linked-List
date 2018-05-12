@@ -19,30 +19,33 @@ body {
 }
 
 h1 {
-  font-size: 4.5em;
+  font-size: 4em;
   font-weight: 800;
   margin-top: 25%;
 }
 
 img {
-  height: 1em;
+  height: 1.5em;
   margin: 0 10px;
-  width: 1em;
+  position: relative;
+  top: 25px;
+  width: 1.5em;
 }
 
 input {
   border: none;
-  height: 4em;
+  font-size: 2em;
   margin-top: 50px;
+  padding: 5px;
   width: 75%;
 }
 
 ::placeholder {
   color: #cfd8dc;
-  font-size: 3em;
+  padding-left: 10px;
 }
 
-button {
+.left-side button {
   background-color: #ffc107;
   border: none;
   color: #fff;
@@ -66,14 +69,18 @@ article {
   border: 2px solid #607d8b;
   height: calc(25% - 35px);
   margin: 25px auto;
-  width: 75%;
+  width: 85%;
   overflow: auto;
   clear: both;
 }
 
 h2 {
   color: #455a64;
-  margin: 10px;
+  margin: 5px 10px;
+}
+
+p {
+  color: #455a64;
 }
 
 .website-url {
@@ -85,16 +92,43 @@ h2 {
   padding: 15px 0;
 }
 
-.url-action {
+.right-side button {
+  border: none;
+  color: #455a64;
   font-size: .85em;
   display: inline;
-  margin: 0 10px;
+  margin: 8px 10px;
+  text-decoration: underline;
+  text-decoration-color: #f2f4f4;
 }
 
-/*.read {
+/*Same purpose as a:hover? Refactor?*/
+.right-side button:hover {    
+  color: #455a64;
+  font-weight: 800;
+  text-decoration-color: #ffc107;
+}
+
+.float-left {
   float: left;
 }
 
-.delete {
+.float-right {
   float: right;
-}*/
+}
+
+a {
+  color: #607d8b;
+  text-decoration-color: #f2f4f4;
+}
+
+a:hover {
+  color: #455a64;
+  font-weight: 800;
+  text-decoration-color: #ffc107;
+}
+
+.read {
+  color: #f05a28;
+  background-color: #f2f4f4;
+}
