@@ -6,33 +6,56 @@ var clearButton = $('.clear-button')
 var readBookmarks = 0;
 var unreadBookmarks = 0;
 
-enterButton.on('click', function(e) {
-  e.preventDefault();
+enterButton.on('click', function(event) {
+  event.preventDefault();
   checkInput();
 });
 
-websiteTitle.keyup(disableSubmit);
-websiteURL.keyup(disableSubmit);
+websiteURL.on('input', function() {
+   if (websiteURL.val().length < 1) {
+    enterButton.attr('disabled', 'disabled');
+   } else {
+    enterButton.removeAttr('disabled', 'disabled');
+  }
+});
 
 rightSection.on('click', '.float-left', function() {
+  if ($(this).parent('article').hasClass('read')) {
+     readBookmarks--;
+     $('#num-read').text('Read: ' + readBookmarks);
+     unreadBookmarks++;
+  $('#num-unread').text('Unread: ' + unreadBookmarks);
+  } else {
+    readBookmarks++;
+  $('#num-read').text('Read: ' + readBookmarks);
+  unreadBookmarks--;
+  $('#num-unread').text('Unread: ' + unreadBookmarks);
+  }
   $(this).parent('article').toggleClass('read')
-  $('.num-read').text(readBookmarks++);
-  $('.num-unread').text(unreadBookmarks--);
 });
 
 rightSection.on('click', '.float-right', function() {
  if ($(this).parent('article').hasClass('read')) {
-    $('.num-read').text(readBookmarks--);
+    readBookmarks--;
+  $('#num-read').text('Read: ' + readBookmarks);
+  } else if (unreadBookmarks === 1) {
+    clearButton.attr('disabled', 'disabled');
+    unreadBookmarks--;
+    $('#num-unread').text('Unread: ' + unreadBookmarks);
   } else {
-    $('.num-unread').text(unreadBookmarks--);
+    unreadBookmarks--;
+  $('#num-unread').text('Unread: ' + unreadBookmarks);
   }
   $(this).parent('article').remove();
 });
 
 clearButton.on('click', function() {
   readBookmarks = 0;
+  $('#num-read').text('Read: ' + readBookmarks);
   unreadBookmarks = 0;
+  $('#num-unread').text('Unread: ' + readBookmarks);
   $('.right-side').empty();
+  clearButton.attr('disabled', 'disabled');
 });
 
 function checkInput() {
@@ -45,13 +68,16 @@ function checkInput() {
 
 function addBookmark() {
   $('.right-side').append(fillBookmark());
-  $('.num-unread').text(unreadBookmarks++);
+  enterButton.attr('disabled', 'disabled');
   clearInput();
 }
 
 function fillBookmark() {
   var title = websiteTitle.val();
   var url = websiteURL.val();
+  clearButton.removeAttr('disabled', 'disabled');
+  unreadBookmarks++;
+  $('#num-unread').text('Unread: ' + unreadBookmarks);
   $('.right-side').append(
       '<article id="bookmark"><h2 class="website-title">' + title + '</h2><p class="website-url"><a href="' + url + '" target=”_blank”>' + url + '</a></p><button class="float-left">Read</button><button class="float-right">Delete</button></article>');
 }
@@ -59,14 +85,6 @@ function fillBookmark() {
 function clearInput() {
   websiteTitle.val('');
   websiteURL.val('');
-}
-
-function disableSubmit() {
- if (websiteURL.val().length < 1 || websiteTitle.val().length < 1) {
-   enterButton.attr('disabled', 'disabled');
- } else {
-   enterButton.removeAttr('disabled', 'disabled');
- }
 }
 
 

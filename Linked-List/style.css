@@ -58,9 +58,13 @@ input {
   width: 75%;
 }
 
-/*.left-side button:disabled {
-background-color:#d0d2d3;
-}*/
+.left-side button:hover {
+  background-color: #ffd773;
+}
+
+.left-side button:disabled {
+  background-color:#d0d2d3;
+}
 
 .num {
   display: inline;
@@ -169,7 +173,7 @@ a:hover {
   background-color: #455a64;
   color: #fff;
   float: left;
-  height: 350px;
+  height: 500px;
   text-align: center;
   width: 100%;
 }
@@ -209,7 +213,24 @@ input {
   font-weight: 800;
   height: 2.5em;
   margin-top: 25px;
+  margin-bottom: 10px;
   width: 75%;
+}
+
+.left-side button:hover {
+  background-color: #ffd773;
+}
+
+.left-side button:disabled {
+  background-color:#d0d2d3;
+}
+
+.num {
+  /*display: inline;*/
+  font-size: 2.5em;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 50px;
 }
 
 .right-side {
@@ -222,7 +243,6 @@ input {
 article {
   background-color: #fff;
   border: 2px solid #607d8b;
-  /*height: calc(25% - 35px);*/
   height: 140px;
   margin: 25px auto;
   width: 85%;
