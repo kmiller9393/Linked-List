@@ -1,46 +1,38 @@
-//declared variables
 var websiteTitle = $('#website-title');
 var websiteURL = $('#website-url');
 var enterButton = $('.enter');
-var readButton = $('.float-left');
-var deleteButton = $('.float-right');
-
-//functions
-websiteTitle.on('input', function() {
-});
-
-websiteURL.on('input', function() {
-});
-
-function addBookmark() {
-  $('.right-side').append(fillBookmark());
-}
-
-function fillBookmark() {
-  this.title = websiteTitle.val();
-  this.url = websiteURL.val();
-  $('.right-side').append(
-      '<article id="bookmark"><h2 class="website-title">' + this.title + '</h2> <p class="website-url"><a href="#" target=”_blank”>' + this.url + '</a></p><button class="float-left">Read</button><button class="float-right">Delete</button></article>');
-}
-
-//enterButton.on('click', function(e) {
- // e.preventDefault();
-  //bookmark1Title.text(websiteTitle.val());
-  //bookmark1Url.text(websiteURL.val());
-//});
+var rightSection = $('.right-side');
+var clearButton = $('.clear-button')
+var readBookmarks = 0;
+var unreadBookmarks = 0;
 
 enterButton.on('click', function(e) {
   e.preventDefault();
   checkInput();
 });
 
-deleteButton.on('click', function() {
-  //$(this).parent('article').toggle('');
-  console.log('working!');
+websiteTitle.keyup(disableSubmit);
+websiteURL.keyup(disableSubmit);
+
+rightSection.on('click', '.float-left', function() {
+  $(this).parent('article').toggleClass('read')
+  $('.num-read').text(readBookmarks++);
+  $('.num-unread').text(unreadBookmarks--);
 });
 
-readButton.on('click', function () {
-  $(this).parent('article').toggleClass('read');
+rightSection.on('click', '.float-right', function() {
+ if ($(this).parent('article').hasClass('read')) {
+    $('.num-read').text(readBookmarks--);
+  } else {
+    $('.num-unread').text(unreadBookmarks--);
+  }
+  $(this).parent('article').remove();
+});
+
+clearButton.on('click', function() {
+  readBookmarks = 0;
+  unreadBookmarks = 0;
+  $('.right-side').empty();
 });
 
 function checkInput() {
@@ -51,7 +43,31 @@ function checkInput() {
   }
 }
 
+function addBookmark() {
+  $('.right-side').append(fillBookmark());
+  $('.num-unread').text(unreadBookmarks++);
+  clearInput();
+}
 
+function fillBookmark() {
+  var title = websiteTitle.val();
+  var url = websiteURL.val();
+  $('.right-side').append(
+      '<article id="bookmark"><h2 class="website-title">' + title + '</h2><p class="website-url"><a href="' + url + '" target=”_blank”>' + url + '</a></p><button class="float-left">Read</button><button class="float-right">Delete</button></article>');
+}
+
+function clearInput() {
+  websiteTitle.val('');
+  websiteURL.val('');
+}
+
+function disableSubmit() {
+ if (websiteURL.val().length < 1 || websiteTitle.val().length < 1) {
+   enterButton.attr('disabled', 'disabled');
+ } else {
+   enterButton.removeAttr('disabled', 'disabled');
+ }
+}
 
 
 
