@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>Linked List</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="./jquery.min.js"><\/script>')</script>
 </head>
@@ -11,14 +13,14 @@
   <section class="left-side">
     <h1>Linked<img src="images/linked-list-logo.svg" alt="Linked List Logo">List</h1>
     <form>
-      <input type="text" id="website-title" placeholder="Website Title"/>
-      <input type="text" id="website-url" placeholder="Website URL"/>
-      <button disabled type="submit" class="enter">Enter</button>
+      <input aria-label="Website Title" type="text" id="website-title" placeholder="Website Title"/>
+      <input aria-label="Website URL" type="text" id="website-url" placeholder="Website URL"/>
+      <button disabled type="submit" class="enter" aria-label="Submit bookmark">Enter</button>
     </form>
     <p class="num" id="num-unread">Unread: 0
     </p>
     <p class="num" id="num-read">Read: 0</p>
-    <button disabled type="submit" class="clear-button">Clear All</button>
+    <button disabled type="submit" class="clear-button" aria-label="Clear bookmarks">Clear All</button>
   </section>
   <section class="right-side">
   </section>  

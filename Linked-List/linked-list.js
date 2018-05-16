@@ -12,9 +12,9 @@ enterButton.on('click', function(event) {
 });
 
 websiteURL.on('input', function() {
-   if (websiteURL.val().length < 1) {
+  if (websiteURL.val().length < 1) {
     enterButton.attr('disabled', 'disabled');
-   } else {
+  } else {
     enterButton.removeAttr('disabled', 'disabled');
   }
 });
@@ -24,27 +24,27 @@ rightSection.on('click', '.float-left', function() {
      readBookmarks--;
      $('#num-read').text('Read: ' + readBookmarks);
      unreadBookmarks++;
-  $('#num-unread').text('Unread: ' + unreadBookmarks);
+    $('#num-unread').text('Unread: ' + unreadBookmarks);
   } else {
     readBookmarks++;
-  $('#num-read').text('Read: ' + readBookmarks);
-  unreadBookmarks--;
-  $('#num-unread').text('Unread: ' + unreadBookmarks);
+    $('#num-read').text('Read: ' + readBookmarks);
+    unreadBookmarks--;
+    $('#num-unread').text('Unread: ' + unreadBookmarks);
   }
   $(this).parent('article').toggleClass('read')
 });
 
 rightSection.on('click', '.float-right', function() {
- if ($(this).parent('article').hasClass('read')) {
+  if ($(this).parent('article').hasClass('read')) {
     readBookmarks--;
-  $('#num-read').text('Read: ' + readBookmarks);
+    $('#num-read').text('Read: ' + readBookmarks);
   } else if (unreadBookmarks === 1) {
     clearButton.attr('disabled', 'disabled');
     unreadBookmarks--;
     $('#num-unread').text('Unread: ' + unreadBookmarks);
   } else {
     unreadBookmarks--;
-  $('#num-unread').text('Unread: ' + unreadBookmarks);
+    $('#num-unread').text('Unread: ' + unreadBookmarks);
   }
   $(this).parent('article').remove();
 });
@@ -64,13 +64,13 @@ function checkInput() {
   } else {
     addBookmark();
   }
-}
+};
 
 function addBookmark() {
   $('.right-side').append(fillBookmark());
   enterButton.attr('disabled', 'disabled');
   clearInput();
-}
+};
 
 function fillBookmark() {
   var title = websiteTitle.val();
@@ -79,16 +79,13 @@ function fillBookmark() {
   unreadBookmarks++;
   $('#num-unread').text('Unread: ' + unreadBookmarks);
   $('.right-side').append(
-      '<article id="bookmark"><h2 class="website-title">' + title + '</h2><p class="website-url"><a href="' + url + '" target=”_blank”>' + url + '</a></p><button class="float-left">Read</button><button class="float-right">Delete</button></article>');
-}
+      '<article id="bookmark"><h2 class="website-title">' + 
+      title + '</h2><p class="website-url"><a href="' + 
+      url + '" target=”_blank”>' + url + 
+      '</a></p><button aria-label="Mark bookmark as read" class="float-left">Read</button><button aria-label="Delete bookmark" class="float-right">Delete</button></article>');
+};
 
 function clearInput() {
   websiteTitle.val('');
   websiteURL.val('');
-}
-
-
-
-
-
-
+};
