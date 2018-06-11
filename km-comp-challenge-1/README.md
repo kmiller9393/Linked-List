@@ -1,1 +1,0 @@
-# km-comp-challenge-1
